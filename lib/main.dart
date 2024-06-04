@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'models/providers/alarm.dart';
+import 'datas/example_model.dart';
+import 'ui/theme/material_theme.dart';
+// import 'ui/screens/test.dart';
+import 'ui/screens/dashboard/alarm.dart';
+
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AlarmProvider>(
+          create: (_) => AlarmProvider(exampleAlarms)
+        ),
+      ],
+      child: const MyApp(),
+    )
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var materialTheme = MaterialTheme(context: context, useDarkMode: true);
+    return MaterialApp(
+      title: 'Opnimus Mobile',
+      theme: materialTheme.getSelectedTheme(),
+      home: const AlarmListScreen(),
+    );
+  }
+}
