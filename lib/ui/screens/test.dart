@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:opnimus_mobile_flutter/ui/widgets/base_app_bar.dart';
+import 'package:opnimus_mobile_flutter/ui/widgets/dashboard_app_bar.dart';
 
 class TestScreen extends StatefulWidget {
   const TestScreen({super.key});
@@ -21,7 +21,7 @@ class _TestScreenState extends State<TestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BaseAppBar(),
+      appBar: const AppBarDashboard(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

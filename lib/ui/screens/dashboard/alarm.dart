@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:opnimus_mobile_flutter/models/alarm.dart';
-import 'package:opnimus_mobile_flutter/models/providers/alarm.dart';
-import 'package:opnimus_mobile_flutter/ui/widgets/base_app_bar.dart';
+import 'package:opnimus_mobile_flutter/providers/alarm.dart';
+import 'package:opnimus_mobile_flutter/ui/widgets/dashboard_app_bar.dart';
 
 class AlarmListScreen extends StatelessWidget {
   const AlarmListScreen({super.key});
@@ -12,7 +12,7 @@ class AlarmListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BaseAppBar(),
+      appBar: const AppBarDashboard(),
       body: Consumer<AlarmProvider>(
         builder: (BuildContext context, AlarmProvider alarmProvider, child) {
           return Column(
@@ -59,7 +59,7 @@ class AlarmCard extends StatelessWidget {
         children: [
           ListTile(
             leading: Icon(
-              FeatherIcons.alertCircle,
+              EvaIcons.alertCircleOutline,
               color: Theme.of(context).colorScheme.error,
               size: 30,
             ),

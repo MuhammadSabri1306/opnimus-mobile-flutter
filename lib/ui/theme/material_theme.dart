@@ -37,6 +37,12 @@ class MaterialTheme {
     return theme( selectedScheme.toColorScheme() );
   }
 
+  static Color? getAppliedColorModes({ Color? lightColor, Color? darkColor }) {
+    if(isDarkMode) return darkColor;
+    return lightColor;
+    // return isDarkMode ? lightColor : darkColor;
+  }
+
   static MaterialScheme lightScheme() {
     return const MaterialScheme(
       brightness: Brightness.light,
