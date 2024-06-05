@@ -6,12 +6,14 @@ class User {
   String fullName;
   String email;
   String phoneNumber;
+  String? token;
 
   User({
     required this.username,
     required this.fullName,
     required this.email,
-    required this.phoneNumber
+    required this.phoneNumber,
+    this.token
   });
 }
 
@@ -25,9 +27,10 @@ class BasicUser extends User {
     required super.fullName,
     required super.email,
     required super.phoneNumber,
+    super.token,
     required this.level,
     this.regional,
-    this.witel
+    this.witel,
   });
 }
 
@@ -39,6 +42,7 @@ class PicUser extends BasicUser {
     required super.fullName,
     required super.email,
     required super.phoneNumber,
+    super.token,
     required super.level,
     super.regional,
     super.witel,
@@ -52,6 +56,7 @@ class AdminUser extends BasicUser {
     required super.fullName,
     required super.email,
     required super.phoneNumber,
+    super.token,
     required super.level,
     super.regional,
     super.witel,

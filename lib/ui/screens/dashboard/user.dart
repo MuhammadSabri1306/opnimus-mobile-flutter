@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-// import 'package:opnimus_mobile_flutter/ui/theme/material_theme.dart';
+// import 'package:opnimus_mobile_flutter/models/user.dart';
+import 'package:opnimus_mobile_flutter/providers/auth.dart';
 import 'package:opnimus_mobile_flutter/ui/widgets/dashboard_app_bar.dart';
 
 class UserScreen extends StatelessWidget {
@@ -8,25 +10,17 @@ class UserScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: AppBarDashboard(
-        actions: <Widget>[
-          IconButtonAppInfo()
-        ],
+    return Scaffold(
+      appBar: const AppBarDashboard(),
+      body: Consumer<AuthProvider>(
+        builder: (BuildContext context, AuthProvider authProvider, _) {
+          return const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            ],
+          );
+        },
       ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'User Profile',
-              style: TextStyle(
-                fontSize: 20
-              )
-            ),
-          ]
-        ),
-      )
     );
   }
 }

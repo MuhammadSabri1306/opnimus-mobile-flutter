@@ -14,7 +14,7 @@ class AlarmListScreen extends StatelessWidget {
     return Scaffold(
       appBar: const AppBarDashboard(),
       body: Consumer<AlarmProvider>(
-        builder: (BuildContext context, AlarmProvider alarmProvider, child) {
+        builder: (BuildContext context, AlarmProvider alarmProvider, _) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

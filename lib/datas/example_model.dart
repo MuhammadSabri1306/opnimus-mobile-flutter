@@ -1,7 +1,7 @@
 import 'package:opnimus_mobile_flutter/models/user.dart';
 import 'package:opnimus_mobile_flutter/models/alarm.dart';
 
-var currUser = BasicUser(
+var exampleUser = BasicUser(
   username: 'cobain.kurt',
   fullName: 'Kurt Cobain',
   email: 'cobain.kurt@test.com',
