@@ -4,12 +4,11 @@ import 'package:provider/provider.dart';
 import 'providers/alarm.dart';
 import 'providers/auth.dart';
 import 'datas/example_model.dart';
+import 'helpers/navigation.dart';
 import 'ui/theme/material_theme.dart';
-// import 'ui/screens/test.dart';
-// import 'ui/screens/dashboard/alarm.dart';
-import 'ui/screens/dashboard.dart';
 
 void main() {
+  AppNavigation.instance;
   runApp(
     MultiProvider(
       providers: [
@@ -26,11 +25,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     var materialTheme = MaterialTheme(context: context, useDarkMode: true);
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Opnimus Mobile',
       theme: materialTheme.getSelectedTheme(),
-      home: const DashboardScreen(),
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppNavigation.router,
     );
   }
 }

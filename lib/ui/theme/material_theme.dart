@@ -556,6 +556,9 @@ class ColorFamily {
 }
 
 class MaterialPalettes {
+  static const Color baseBlueDark = Color(0xFF010619);
+  static const Color baseBlueLight = Color(0xFF455883);
+
   static Map<int, Color> getBlue() {
     return {
       0: const Color(0xFF000000),
