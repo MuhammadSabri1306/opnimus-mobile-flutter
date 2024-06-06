@@ -4,17 +4,19 @@ import 'package:provider/provider.dart';
 // import 'package:opnimus_mobile_flutter/models/user.dart';
 import 'package:opnimus_mobile_flutter/providers/auth.dart';
 
-class UserScreen extends StatelessWidget {
-  const UserScreen({super.key});
+class AccountScreen extends StatelessWidget {
+  const AccountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(
       builder: (BuildContext context, AuthProvider authProvider, _) {
         return const Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 60),
               Text(
                 'Account',
                 style: TextStyle(

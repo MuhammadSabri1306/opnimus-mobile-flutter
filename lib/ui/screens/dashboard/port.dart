@@ -15,6 +15,7 @@ class PortListScreen extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 60),
             Expanded(
               child: ListView.builder(
                 itemCount: portProvider.ports.length,

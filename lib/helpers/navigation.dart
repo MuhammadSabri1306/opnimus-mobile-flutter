@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:opnimus_mobile_flutter/ui/screens/splash.dart';
 import 'package:opnimus_mobile_flutter/ui/screens/dashboard.dart';
 import 'package:opnimus_mobile_flutter/ui/screens/dashboard/home.dart' as dashboard_home;
-import 'package:opnimus_mobile_flutter/ui/screens/dashboard/alarm.dart' as dashboard_port;
+import 'package:opnimus_mobile_flutter/ui/screens/dashboard/port.dart' as dashboard_port;
 import 'package:opnimus_mobile_flutter/ui/screens/dashboard/notification.dart' as dashboard_notif;
-import 'package:opnimus_mobile_flutter/ui/screens/dashboard/user.dart' as dashboard_account;
+import 'package:opnimus_mobile_flutter/ui/screens/dashboard/account.dart' as dashboard_account;
 
 class AppNavigation {
 
@@ -70,7 +70,7 @@ class AppNavigation {
             GoRoute(
               path: dashboardNotifsPath,
               builder: (BuildContext context, GoRouterState state) =>
-                  const dashboard_notif.NotificationScreen(),
+                  const dashboard_notif.NotifScreen(),
             ),
           ],
         ),
@@ -80,7 +80,7 @@ class AppNavigation {
             GoRoute(
               path: dashboardAccountPath,
               builder: (BuildContext context, GoRouterState state) =>
-                  const dashboard_account.UserScreen(),
+                  const dashboard_account.AccountScreen(),
             ),
           ],
         ),

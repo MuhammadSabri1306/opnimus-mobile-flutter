@@ -14,8 +14,13 @@ class DashboardScreen extends StatefulWidget {
 
   final StatefulNavigationShell child;
 
-  DashboardScreen({ super.key, required this.child });
+  const DashboardScreen({ super.key, required this.child });
 
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   final List<NavigationDestination> navDests = [
     const NavigationDestination(
       selectedIcon: Icon(EvaIcons.home),
@@ -23,8 +28,8 @@ class DashboardScreen extends StatefulWidget {
       label: 'Home',
     ),
     const NavigationDestination(
-      selectedIcon: Icon(EvaIcons.alertCircle),
-      icon: Icon(EvaIcons.alertCircleOutline),
+      selectedIcon: Icon(EvaIcons.radioButtonOn),
+      icon: Icon(EvaIcons.radioButtonOnOutline),
       label: 'Ports',
     ),
     const NavigationDestination(
@@ -50,11 +55,6 @@ class DashboardScreen extends StatefulWidget {
     return color;
   }
 
-  @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
-}
-
-class _DashboardScreenState extends State<DashboardScreen> {
   void onTap(int index) {
     widget.child.goBranch(
       index,
@@ -73,9 +73,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       body: SafeArea(child: widget.child),
       bottomNavigationBar: NavigationBar(
-        indicatorColor: widget.indicatorColor,
+        indicatorColor: indicatorColor,
         selectedIndex: widget.child.currentIndex,
-        destinations: widget.navDests,
+        destinations: navDests,
         onDestinationSelected: onTap,
       ),
     );

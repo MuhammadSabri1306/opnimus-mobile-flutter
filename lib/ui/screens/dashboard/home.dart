@@ -8,7 +8,9 @@ class HomeScreen extends StatelessWidget {
     return const Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(height: 60),
           Text(
             'Home Page',
             style: TextStyle(
