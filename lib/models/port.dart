@@ -1,13 +1,13 @@
 import 'package:opnimus_mobile_flutter/models/mixins/dynamic_data.dart';
 
-class AlarmDynamic with DynamicDataAbility {
-  AlarmDynamic(Map<String, dynamic>? data) {
+class PortDynamic with DynamicDataAbility {
+  PortDynamic(Map<String, dynamic>? data) {
     if(data != null) fromMap(data);
   }
 
-  static List<AlarmDynamic> createFromList(List<Map<String, dynamic>> list) {
+  static List<PortDynamic> createFromList(List<Map<String, dynamic>> list) {
     if(list.isEmpty) return [];
-    return list.map((item) => AlarmDynamic(item)).toList();
+    return list.map((item) => PortDynamic(item)).toList();
   }
 
   String get title {

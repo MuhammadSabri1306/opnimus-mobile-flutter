@@ -60,7 +60,7 @@ class AppNavigation {
             GoRoute(
               path: dashboardPortsPath,
               builder: (BuildContext context, GoRouterState state) =>
-                  const dashboard_port.AlarmListScreen(),
+                  const dashboard_port.PortListScreen(),
             ),
           ],
         ),

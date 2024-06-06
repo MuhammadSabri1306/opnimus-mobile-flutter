@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
-import 'package:opnimus_mobile_flutter/models/alarm.dart';
-import 'package:opnimus_mobile_flutter/providers/alarm.dart';
+import 'package:opnimus_mobile_flutter/models/port.dart';
+import 'package:opnimus_mobile_flutter/providers/port.dart';
 
-class AlarmListScreen extends StatelessWidget {
-  const AlarmListScreen({super.key});
+class PortListScreen extends StatelessWidget {
+  const PortListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AlarmProvider>(
-      builder: (BuildContext context, AlarmProvider alarmProvider, _) {
+    return Consumer<PortProvider>(
+      builder: (BuildContext context, PortProvider portProvider, _) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: alarmProvider.alarms.length,
-                itemBuilder: (context, index) => AlarmCard(alarm: alarmProvider.alarms[index]),
+                itemCount: portProvider.ports.length,
+                itemBuilder: (context, index) => PortCard(port: portProvider.ports[index]),
               )
             )
           ],
@@ -28,22 +28,22 @@ class AlarmListScreen extends StatelessWidget {
   }
 }
 
-class AlarmCard extends StatelessWidget {
-  final AlarmDynamic alarm;
+class PortCard extends StatelessWidget {
+  final PortDynamic port;
 
-  const AlarmCard({ required this.alarm, super.key });
+  const PortCard({ required this.port, super.key });
 
   @override
   Widget build(BuildContext context) {
     var titleText = [
-      if(alarm.data?['no_port'] is String) '(${ alarm.data?['no_port'] })',
-      if(alarm.data?['rtu_sname'] is String) alarm.data?['rtu_sname']
+      if(port.data?['no_port'] is String) '(${ port.data?['no_port'] })',
+      if(port.data?['rtu_sname'] is String) port.data?['rtu_sname']
     ].join(' ');
 
-    var portName = alarm.data?['port_name'] ?? '';
-    var portDescr = alarm.data?['description'] ?? '';
-    var severityText = alarm.data?['severity']?['name'] ?? '-';
-    var valueText = alarm.getValueText();
+    var portName = port.data?['port_name'] ?? '';
+    var portDescr = port.data?['description'] ?? '';
+    var severityText = port.data?['severity']?['name'] ?? '-';
+    var valueText = port.getValueText();
 
     var theme = Theme.of(context);
 

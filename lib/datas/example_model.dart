@@ -1,5 +1,5 @@
 import 'package:opnimus_mobile_flutter/models/user.dart';
-import 'package:opnimus_mobile_flutter/models/alarm.dart';
+import 'package:opnimus_mobile_flutter/models/port.dart';
 
 var exampleUser = BasicUser(
   username: 'cobain.kurt',
@@ -17,7 +17,7 @@ var exampleUser = BasicUser(
   }
 );
 
-var exampleAlarms = AlarmDynamic.createFromList([
+var examplePorts = PortDynamic.createFromList([
   {
     "result_type": "port",
     "rtu_id": "6RavWqHa0VNcVyZRE5FT",
