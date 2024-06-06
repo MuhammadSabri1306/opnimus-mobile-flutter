@@ -32,15 +32,20 @@ class MaterialTheme {
     canvasColor: colorScheme.surface,
   );
 
-  ThemeData getSelectedTheme() {
-    var selectedScheme = isDarkMode ? darkScheme() : lightScheme();
-    return theme( selectedScheme.toColorScheme() );
+  static MaterialScheme getSelectedScheme() {
+    return isDarkMode ? darkScheme() : lightScheme();
   }
 
-  static Color? getAppliedColorModes({ Color? lightColor, Color? darkColor }) {
-    if(isDarkMode) return darkColor;
-    return lightColor;
-    // return isDarkMode ? lightColor : darkColor;
+  ThemeData getSelectedTheme() {
+    return theme( getSelectedScheme().toColorScheme() );
+  }
+
+  static T pickByAppliedMode<T>({ required T light, required T dark }) {
+    return isDarkMode ? dark : light;
+  }
+
+  static Color getAppliedColorModes({ required Color lightColor, required Color darkColor }) {
+    return pickByAppliedMode(light: lightColor, dark: darkColor);
   }
 
   static MaterialScheme lightScheme() {
@@ -558,6 +563,7 @@ class ColorFamily {
 class MaterialPalettes {
   static const Color baseBlueDark = Color(0xFF010619);
   static const Color baseBlueLight = Color(0xFF455883);
+  static const Color baseWhite = Color(0xFFFCFCFC);
 
   static Map<int, Color> getBlue() {
     return {

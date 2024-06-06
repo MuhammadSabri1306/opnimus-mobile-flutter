@@ -44,10 +44,10 @@ class DashboardScreen extends StatefulWidget {
   Color get indicatorColor {
     Map<int, Color> primaryColors = MaterialPalettes.getPrimary();
     var color = MaterialTheme.getAppliedColorModes(
-      lightColor: primaryColors[70] ?? MaterialPalettes.baseBlueDark,
-      darkColor: primaryColors[30] ?? MaterialPalettes.baseBlueLight
+      lightColor: primaryColors[70]!,
+      darkColor: primaryColors[30]!
     );
-    return color!;
+    return color;
   }
 
   @override
@@ -84,8 +84,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Color? getIndicatorColor() {
     Map<int, Color> primaryColors = MaterialPalettes.getPrimary();
     return MaterialTheme.getAppliedColorModes(
-      lightColor: primaryColors[70],
-      darkColor: primaryColors[30]
+      lightColor: primaryColors[70]!,
+      darkColor: primaryColors[30]!
     );
   }
 }

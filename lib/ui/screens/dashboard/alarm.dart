@@ -29,7 +29,7 @@ class AlarmListScreen extends StatelessWidget {
 }
 
 class AlarmCard extends StatelessWidget {
-  final Alarm alarm;
+  final AlarmDynamic alarm;
 
   const AlarmCard({ required this.alarm, super.key });
 

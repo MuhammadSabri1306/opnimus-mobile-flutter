@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:opnimus_mobile_flutter/ui/screens/test.dart';
+import 'package:opnimus_mobile_flutter/ui/screens/splash.dart';
 import 'package:opnimus_mobile_flutter/ui/screens/dashboard.dart';
 import 'package:opnimus_mobile_flutter/ui/screens/dashboard/home.dart' as dashboard_home;
 import 'package:opnimus_mobile_flutter/ui/screens/dashboard/alarm.dart' as dashboard_port;
@@ -22,6 +22,7 @@ class AppNavigation {
   static final GlobalKey<NavigatorState> dashboardTabNotifsNavigatorKey = GlobalKey<NavigatorState>();
   static final GlobalKey<NavigatorState> dashboardTabAccountNavigatorKey = GlobalKey<NavigatorState>();
 
+  static const String rootPath = '/';
   static const String dashboardPath = '/dashboard';
   // static const String dashboardPortsSub = 'ports';
   // static const String dashboardNotifsSub = 'notifs';
@@ -33,10 +34,10 @@ class AppNavigation {
   static late final GoRouter router;
 
   AppNavigation._internal() {
-    final homeRoute = GoRoute(
-      path: '/',
+    final rootRoute = GoRoute(
+      path: rootPath,
       pageBuilder: (context, state) {
-        return const MaterialPage(child: TestScreen());
+        return const MaterialPage(child: SplashScreen( applyLoading: true ));
       },
     );
 
@@ -98,9 +99,9 @@ class AppNavigation {
 
     router = GoRouter(
       navigatorKey: parentNavigatorKey,
-      initialLocation: dashboardPath,
+      initialLocation: rootPath,
       routes: [
-        homeRoute,
+        rootRoute,
         dashboardRoute
       ]
     );

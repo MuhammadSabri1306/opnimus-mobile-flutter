@@ -17,7 +17,7 @@ var exampleUser = BasicUser(
   }
 );
 
-var exampleAlarms = Alarm.createFromList([
+var exampleAlarms = AlarmDynamic.createFromList([
   {
     "result_type": "port",
     "rtu_id": "6RavWqHa0VNcVyZRE5FT",
