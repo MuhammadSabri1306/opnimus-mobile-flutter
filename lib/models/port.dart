@@ -1,4 +1,5 @@
 import 'package:opnimus_mobile_flutter/models/mixins/dynamic_data.dart';
+import 'package:opnimus_mobile_flutter/helpers/text.dart';
 
 class PortDynamic with DynamicDataAbility {
   PortDynamic(Map<String, dynamic>? data) {
@@ -10,8 +11,18 @@ class PortDynamic with DynamicDataAbility {
     return list.map((item) => PortDynamic(item)).toList();
   }
 
+  static String titleOf(PortDynamic port) {
+    return TextHelper.joinStr(
+      separator: ' ',
+      list: <TextHelperJoinItem>[
+        TextHelperJoinItem(text: port.data?['rtu_sname'], checker: (text) => text is String),
+        TextHelperJoinItem(text: port.data?['no_port'], checker: (text) => text is String),
+      ]
+    );
+  }
+
   String get title {
-    return joinStrValues(keys: ['rtu_sname', 'no_port'], separator: ' ');
+    return titleOf(this);
   }
 
   String getValueText() {

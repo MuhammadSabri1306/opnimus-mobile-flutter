@@ -6,6 +6,17 @@ mixin DynamicDataAbility {
 
   void fromMap(Map<String, dynamic> data) => _data = data;
 
+  List<dynamic> getListValues(List<String>? keys) {
+    if(data == null) return [];
+    if(keys == null) return data?.values.toList() ?? [];
+
+    List<dynamic> values = [];
+    for(final key in keys) {
+      values.add(data?[key]);
+    }
+    return values;
+  }
+
   String joinStrValues({ required List<String> keys, String separator = '', bool exceptNull = true }) {
     List<String> values = [];
     for(final key in keys) {

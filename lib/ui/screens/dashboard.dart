@@ -42,9 +42,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
         name: userCircleAvatar['name'],
         backgroundColor: userCircleAvatar['color'],
       ),
-      label: 'Profil',
+      label: 'Account',
     )
   ];
+
+  List<Widget>? get appBarActions {
+    if(widget.child.currentIndex == 0) {
+      return [ const IconButtonAppInfo() ];
+    }
+
+    if(widget.child.currentIndex == 1) {
+      return [ const IconButtonSearchInfo(), const IconButtonAppInfo() ];
+    }
+
+    return null;
+  }
 
   Color get indicatorColor {
     Map<int, Color> primaryColors = MaterialPalettes.getPrimary();
@@ -66,10 +78,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarDashboard(
-        actions: <Widget>[
-          IconButtonAppInfo()
-        ],
+      appBar: AppBarDashboard(
+        actions: appBarActions,
       ),
       body: SafeArea(child: widget.child),
       bottomNavigationBar: NavigationBar(
@@ -78,14 +88,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
         destinations: navDests,
         onDestinationSelected: onTap,
       ),
-    );
-  }
-
-  Color? getIndicatorColor() {
-    Map<int, Color> primaryColors = MaterialPalettes.getPrimary();
-    return MaterialTheme.getAppliedColorModes(
-      lightColor: primaryColors[70]!,
-      darkColor: primaryColors[30]!
     );
   }
 }
